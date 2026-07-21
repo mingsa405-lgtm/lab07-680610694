@@ -21,6 +21,9 @@ app.use(morgan("dev", { immediate: false }));
 app.use(express.json());    // parses request's payload into 'req.body'
 
 // Endpoints
+app.get('/', (req: Request, res: Response) => {
+    res.status(200).send('API services for Student Data');
+});
 app.get("/api/students", (req: Request, res: Response) => {
   try {
     const program = req.query.program;

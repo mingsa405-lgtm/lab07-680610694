@@ -21,7 +21,7 @@ app.use(morgan("dev", { immediate: false }));
 app.use(express.json());    // parses request's payload into 'req.body'
 
 // Endpoints
-app.get("/students", (req: Request, res: Response) => {
+app.get("/api/students", (req: Request, res: Response) => {
   try {
     const program = req.query.program;
     const studentId = req.query.studentId;
@@ -152,7 +152,7 @@ app.put("/students", (req: Request, res: Response) => {
 });
 
 // DELETE /students, body = {studentId}
-app.delete("/students", (req: Request, res: Response) => {
+app.delete("/api/students", (req: Request, res: Response) => {
   try {
     
     const result = zStudentDeleteBody.safeParse(req.body); 
@@ -193,7 +193,7 @@ app.delete("/students", (req: Request, res: Response) => {
   }
 });
 // GET /api/me
-app.get("/students/me",(req:Request,res:Response)=>{
+app.get("/api/me",(req:Request,res:Response)=>{
 return res.json({
     ok:true,
     fullname:"pannawat womgkeawjan",
